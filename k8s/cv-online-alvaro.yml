@@ -25,7 +25,7 @@ spec:
         runAsGroup: python
       containers:
       - name: cv-web-site
-        image: ablancoze/flask-web
+        image: ablancom/
         imagePullPolicy: IfNotPresent
         resources:
           limits:

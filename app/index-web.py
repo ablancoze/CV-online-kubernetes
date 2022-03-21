@@ -1,6 +1,6 @@
 #import de las librerias
 from datetime import datetime
-import pyscopg2
+import postgres
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 
 #variable app para inidicar a flask las rutas de los comandos back
