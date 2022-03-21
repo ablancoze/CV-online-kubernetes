@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cv-web-site
-  namespace: web-site
+  namespace: web-sites
   labels:
     k8s-app: cv-web-site
     app.kubernetes.io/component: web

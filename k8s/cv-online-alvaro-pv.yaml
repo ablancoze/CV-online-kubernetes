@@ -17,7 +17,7 @@ spec:
    apiVersion: v1
    kind: PersistentVolumeClaim
    name: cv-web-site-html-pvc
-   namespace: web-site
+   namespace: web-sites
  nfs:
    server: "192.168.1.5"
    path: "/VOL_CAAS_TST/Q_CAAS_TST/docker-volumes/bjz01-tst-001/bjz01-tst-001-k8s01/web-site/cv-web-site"
