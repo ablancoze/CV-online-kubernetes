@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-web-site
+  namespace: web-site
+  labels:
+    k8s-app: cv-web-site
+    app.kubernetes.io/component: web
+    app.kubernetes.io/name: cv-web-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: cv-web-site
+  template:
+    metadata:
+      name: cv-web-site  
+      labels:
+        k8s-app: cv-web-site
+    spec:
+      serviceAccount: cv-web-site-sa
+      restartPolicy: Always
+      securityContext:
+        runAsUser: python
+        runAsGroup: python
+      containers:
+      - name: cv-web-site
+        image: ablancoze/flask-web
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1Gi
+          requests:
+            cpu: 150m
+            memory: 500Mi
+        env:
+        - name: FLASK_APP
+          value: "/app/index-web.py"
+        ports:
+        - containerPort: 443
+          protocol: TCP
+        volumeMounts:
+        - name: cv-web-site-html
+          mountPath: /app/
+      volumes:
+      - name: cv-web-site-html
+        persistentVolumeClaim:
+          claimName: cv-web-site-html-pvc

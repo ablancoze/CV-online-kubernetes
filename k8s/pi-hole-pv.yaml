@@ -1,0 +1,26 @@
+---
+#
+# For OnPrem with static NFS environments
+#
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ finalizers:
+ - kubernetes.io/pv-protection
+ name: cv-web-site-html-pv
+spec:
+ accessModes:
+ - ReadWriteMany
+ capacity:
+   storage: 10Gi
+ claimRef:
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   name: cv-web-site-html-pvc
+   namespace: web-site
+ nfs:
+   server: "192.168.1.5"
+   path: "/VOL_CAAS_TST/Q_CAAS_TST/docker-volumes/bjz01-tst-001/bjz01-tst-001-k8s01/web-site/cv-web-site"
+ persistentVolumeReclaimPolicy: Retain
+ storageClassName: ""
+ volumeMode: Filesystem
