@@ -6,7 +6,7 @@ metadata:
   labels:
     k8s-app: cv-web-site
     app.kubernetes.io/component: web
-    app.kubernetes.io/name: cv-web-site
+    app.kubernetes.io/name: cv-online
 spec:
   replicas: 1
   selector:

@@ -1,0 +1,6 @@
+#Service Account used to dowload aqua images
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cv-web-site-sa
+  namespace: pi-hole
